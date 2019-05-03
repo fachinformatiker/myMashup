@@ -28,6 +28,4 @@ public class CandyModel {
     public void setSync(int sync) {
         this.sync = sync;
     }
-
-
 }
