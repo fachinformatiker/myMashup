@@ -1,4 +1,4 @@
-package app.fachinformatiker;
+package app.fachinformatiker.myMashup;
 
 public class Main {
 
