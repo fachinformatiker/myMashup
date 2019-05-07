@@ -1,6 +1,7 @@
 package app.fachinformatiker.myMashup.model;
 
 public class CandyModel {
+    public boolean finished = false;
     private int producer;
     private int consumer;
     private int sync;
