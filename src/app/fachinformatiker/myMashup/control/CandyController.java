@@ -38,6 +38,7 @@ public class CandyController {
 
     public void updateView(){
         view.printValues(model.getProducer(), model.getConsumer(), model.getSync());
+        view.printRandomValue("asdf");
     }
 
 }
