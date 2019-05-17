@@ -24,7 +24,7 @@ mit einer Länge bis 20 Zeichen gefüllt werden, producerID ist klar.
 
 ● Die Instanzen von Candy werden in einem gemeinsamen Stack abgelegt.
 
-● Nachdem alle Produzenten gestartet worden sind, werden die Verbrauchergestartet. Diese ziehen
+● Nachdem alle Produzenten gestartet worden sind, werden die Verbraucher gestartet. Diese ziehen
 in ihrer run() Methode ständig eine Candy-Instanz vom gemeinsamen Stack und geben den Zustand
 der Attribute in der Konsole aus.
 

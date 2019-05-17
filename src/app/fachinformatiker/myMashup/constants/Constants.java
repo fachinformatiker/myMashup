@@ -7,8 +7,13 @@ public interface Constants {
     String PRODUCER = "Producer: ";
     String CONSUMER = "Consumer: ";
     String SYNC = "Sync: ";
-    String ALPHA_NUMERIC_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    String ALPHA_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    String NUMERIC_STRING = "0123456789";
+    String ALPHA_STRING = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     String RANDOM_VALUE = "Random value: ";
+
+    int MIN_HELL = 9999;
+    int MAX_HELL = 19998;
+
+    int HOPE_LEFT_LIMIT = 58;
+    int HOPE_RIGHT_LIMIT = 126; // letter 'z'
+    int HOPE_TARGET_STRING_LENGTH = 20;
 }

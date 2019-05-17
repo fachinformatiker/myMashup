@@ -1,13 +1,15 @@
 package app.fachinformatiker.myMashup.control;
 
+import app.fachinformatiker.myMashup.model.Candy;
 import app.fachinformatiker.myMashup.model.CandyModel;
 import app.fachinformatiker.myMashup.view.CandyView;
 
 public class CandyController {
-    private CandyModel model;
-    private CandyView view;
+    private Candy candy = new Candy();
+    private CandyModel model = new CandyModel();
+    private CandyView view = new CandyView();
 
-    public CandyController(CandyModel model, CandyView view){
+    public CandyController(CandyModel model, CandyView view, Candy candy){
         this.model = model;
         this.view = view;
     }
@@ -36,9 +38,18 @@ public class CandyController {
         return model.getSync();
     }
 
+    public void setHellValue() {
+        candy.createHell();
+    }
+
+    public int getHellValue() {
+        return candy.getHell();
+    }
+
     public void updateView(){
         view.printValues(model.getProducer(), model.getConsumer(), model.getSync());
-        view.printRandomValue("asdf");
+        view.printRandomValue(candy.getHell());
+        view.printRandomValue(candy.getHope());
     }
 
 }

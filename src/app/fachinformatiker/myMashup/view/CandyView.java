@@ -12,4 +12,8 @@ public class CandyView {
     public void printRandomValue(String random){
         System.out.println(RANDOM_VALUE + random);
     }
+
+    public void printRandomValue(int random){
+        System.out.println(RANDOM_VALUE + random);
+    }
 }
