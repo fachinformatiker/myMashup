@@ -1,11 +1,11 @@
-package app.fachinformatiker.myMashup.main;
+package app.fachinformatiker.myMashup.Main;
 
-import app.fachinformatiker.myMashup.control.CandyController;
-import app.fachinformatiker.myMashup.model.Candy;
-import app.fachinformatiker.myMashup.model.CandyModel;
-import app.fachinformatiker.myMashup.view.CandyView;
+import app.fachinformatiker.myMashup.Control.CandyController;
+import app.fachinformatiker.myMashup.Model.Candy;
+import app.fachinformatiker.myMashup.Model.CandyModel;
+import app.fachinformatiker.myMashup.View.CandyView;
 
-import static app.fachinformatiker.myMashup.constants.Constants.*;
+import static app.fachinformatiker.myMashup.Constants.Constants.*;
 
 public class Main {
 
@@ -25,11 +25,14 @@ public class Main {
         CandyView view = new CandyView();
         CandyController controller = new CandyController(model, view, candy);
 
-        controller.setProducerValue(Integer.parseInt(args[0]));
-        controller.setConsumerValue(Integer.parseInt(args[1]));
+        controller.setProducerAmount(Integer.parseInt(args[0]));
+        controller.setConsumerAmount(Integer.parseInt(args[1]));
         controller.setSyncValue(Integer.parseInt(args[2]));
 
-        controller.updateView();
+        while (!model.finished) {
+            controller.updateView();
+        }
+
 
     }
 

@@ -1,20 +1,15 @@
-package app.fachinformatiker.myMashup.model;
+package app.fachinformatiker.myMashup.Model;
 
 import java.util.Random;
 import java.util.Stack;
 
-import static app.fachinformatiker.myMashup.constants.Constants.*;
+import static app.fachinformatiker.myMashup.Constants.Constants.*;
 
 public class Candy {
     private int hell;
     private String hope;
     private int producerID;
-    Stack CandyStack = new Stack();
-
-    public void createCandy() {
-        createHell();
-        createHope();
-    }
+    private CandyStack stack = new CandyStack();
 
     public void createHell() {
         hell = new Random().nextInt(MAX_HELL)- MIN_HELL;
@@ -39,15 +34,5 @@ public class Candy {
     public String getHope() {
         createHope();
         return hope;
-    }
-
-    public void addToStack(Candy candy) {
-        CandyStack.push(candy);
-    }
-    public void removeFromStack() {
-        CandyStack.pop();
-    }
-    public void peekToStack() {
-        CandyStack.peek();
     }
 }

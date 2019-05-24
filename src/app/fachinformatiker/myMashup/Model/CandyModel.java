@@ -1,4 +1,4 @@
-package app.fachinformatiker.myMashup.model;
+package app.fachinformatiker.myMashup.Model;
 
 public class CandyModel {
     public boolean finished = false;
