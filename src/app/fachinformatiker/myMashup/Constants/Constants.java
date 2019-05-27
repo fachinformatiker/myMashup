@@ -10,6 +10,7 @@ public interface Constants {
     String RANDOM_VALUE_HELL = "Hell: ";
     String RANDOM_VALUE_HOPE = "Hope: ";
 
+    int MagicNumber = 666;
     int MIN_HELL = 9999;
     int MAX_HELL = 19998;
 
