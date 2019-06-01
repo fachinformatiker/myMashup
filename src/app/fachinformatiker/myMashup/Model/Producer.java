@@ -1,7 +1,6 @@
 package app.fachinformatiker.myMashup.Model;
 
-import app.fachinformatiker.myMashup.Control.CandyController;
-import app.fachinformatiker.myMashup.View.CandyView;
+import java.util.Stack;
 
 public class Producer {
 
@@ -9,15 +8,16 @@ public class Producer {
     // will create new values and send them to the stack
 
     private Candy candy = new Candy();
-    private CandyView view = new CandyView();
-    private CandyStack stack = new CandyStack();
 
 
     int hell = candy.getHell();
     String hope = candy.getHope();
 
+    public Producer(Stack<Candy> candyStack, int i) {
+
+    }
+
     public void setCandy(Candy candy) {
         this.candy = candy;
-        // ? stack.addToStack();
     }
 }

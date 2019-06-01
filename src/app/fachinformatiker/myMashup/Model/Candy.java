@@ -9,7 +9,6 @@ public class Candy {
     private int hell;
     private String hope;
     private int producerID;
-    private CandyStack stack = new CandyStack();
 
     public void createHell() {
         hell = new Random().nextInt(MAX_HELL)- MIN_HELL;
