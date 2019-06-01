@@ -1,5 +1,7 @@
 package app.fachinformatiker.myMashup.Model;
 
+import app.fachinformatiker.myMashup.Utility.Debug;
+
 public class ArgController {
 
     static int producerCount;
@@ -12,6 +14,7 @@ public class ArgController {
         producerCount = producerArg;
         consumerCount = consumerArg;
         syncCount = syncArg;
+        Debug.gebeInfoAus("producerArg: " + producerArg + ", consumerArg: " + consumerArg + "syncArg: " + syncArg);
     }
 
     public static int getAnzahlProduzenten() {
@@ -19,7 +22,7 @@ public class ArgController {
     }
 
     public static int getAnzahlConsumenten() {
-        return producerCount;
+        return consumerCount;
     }
 
 }

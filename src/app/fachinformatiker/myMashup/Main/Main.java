@@ -14,7 +14,7 @@ import static app.fachinformatiker.myMashup.Constants.Constants.NONNUMERIC_ARGUM
 
 public class Main {
 
-    private static final Stack<Candy> candyStack = new Stack<>();
+    private static final Stack<String> candyStack = new Stack<>();
     private static final ArrayList<Producer> producerList = new ArrayList<>();
     private static final ArrayList<Consumer> consumerList = new ArrayList<>();
     private static final Terminator terminator = new Terminator();
@@ -52,14 +52,14 @@ public class Main {
     private static void startProducers() {
         for (int i = 0; i < producerList.size(); i++) {
             System.out.println("I would start producer Nr. " + i + " now.");
-//            producerList.get(i).start();
+            producerList.get(i).start();
         }
     }
 
     private static void startConsumer() {
         for (int i = 0; i < consumerList.size(); i++) {
-            System.out.println("I would start consumer Nr. " + i + " now.");
-//            consumerList.get(i).start();
+            Debug.gebeInfoAus("I would start consumer Nr. " + i + " now.");
+            consumerList.get(i).start();
         }
     }
 
@@ -69,7 +69,7 @@ public class Main {
             return;
         }
         for (int i = 0; i < ArgController.getAnzahlProduzenten(); i++) {
-            System.out.println("Producer Nr. " + i + " addad to candyStack");
+            Debug.gebeInfoAus("Producer Nr. " + i + " added to candyStack");
             producerList.add(new Producer(candyStack, i));
         }
     }
@@ -80,8 +80,8 @@ public class Main {
             return;
         }
         for (int i = 0; i < ArgController.getAnzahlConsumenten(); i++) {
-            System.out.println("Consumer Nr. " + i + " addad to candyStack");
-            consumerList.add(new Consumer(candyStack, i));
+            Debug.gebeInfoAus("Consumer Nr. " + i + " added to candyStack");
+            consumerList.add(new Consumer(candyStack));
         }
     }
 

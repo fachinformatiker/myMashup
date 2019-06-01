@@ -1,23 +1,24 @@
 package app.fachinformatiker.myMashup.Model;
 
+import app.fachinformatiker.myMashup.Utility.Debug;
+
 import java.util.Stack;
 
 public class Producer {
 
-    // Thread for producer
-    // will create new values and send them to the stack
-
     private Candy candy = new Candy();
-
+    private String myCandy;
 
     int hell = candy.getHell();
     String hope = candy.getHope();
 
-    public Producer(Stack<Candy> candyStack, int i) {
-
+    public Producer(Stack<String> candyStack, int i) {
+        myCandy = i + ";" + hell + ";" + hope;
+        candyStack.push(myCandy);
+        Debug.gebeInfoAus(myCandy);
     }
 
-    public void setCandy(Candy candy) {
-        this.candy = candy;
+    public void start() {
+
     }
 }
