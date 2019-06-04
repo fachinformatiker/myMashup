@@ -14,7 +14,7 @@ import static app.fachinformatiker.myMashup.Constants.Constants.NONNUMERIC_ARGUM
 
 public class Main {
 
-    private static final Stack<String> candyStack = new Stack<>();
+    public static final Stack<Candy> candyStack = new Stack<>();
     private static final ArrayList<Producer> producerList = new ArrayList<>();
     private static final ArrayList<Consumer> consumerList = new ArrayList<>();
     private static final Terminator terminator = new Terminator();
@@ -38,7 +38,7 @@ public class Main {
         Debug.setDebug(true);
         werteArgumenteAus(producerArg, consumerArg, syncArg);
         starteAbbruchThread();
-        initializeProducers();;
+        initializeProducers();
         initializeConsumers();
         startProducers();
         startConsumer();
@@ -51,15 +51,15 @@ public class Main {
 
     private static void startProducers() {
         for (int i = 0; i < producerList.size(); i++) {
-            System.out.println("I would start producer Nr. " + i + " now.");
             producerList.get(i).start();
+            System.out.println("I would start producer Nr. " + i + " now.");
         }
     }
 
     private static void startConsumer() {
         for (int i = 0; i < consumerList.size(); i++) {
-            Debug.gebeInfoAus("I would start consumer Nr. " + i + " now.");
             consumerList.get(i).start();
+            Debug.gebeInfoAus("I would start consumer Nr. " + i + " now.");
         }
     }
 
@@ -69,8 +69,8 @@ public class Main {
             return;
         }
         for (int i = 0; i < ArgController.getAnzahlProduzenten(); i++) {
-            Debug.gebeInfoAus("Producer Nr. " + i + " added to candyStack");
             producerList.add(new Producer(candyStack, i));
+            Debug.gebeInfoAus("Producer Nr. " + i + " added to candyStack");
         }
     }
 
@@ -80,8 +80,8 @@ public class Main {
             return;
         }
         for (int i = 0; i < ArgController.getAnzahlConsumenten(); i++) {
-            Debug.gebeInfoAus("Consumer Nr. " + i + " added to candyStack");
             consumerList.add(new Consumer(candyStack));
+            Debug.gebeInfoAus("Consumer Nr. " + i + " added to candyStack");
         }
     }
 

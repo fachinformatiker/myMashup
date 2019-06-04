@@ -4,21 +4,22 @@ import app.fachinformatiker.myMashup.Utility.Debug;
 
 import java.util.Stack;
 
-public class Producer {
+public class Producer extends Thread{
+    private Stack<Candy> candyStack;
+    private int number;
 
-    private Candy candy = new Candy();
-    private String myCandy;
-
-    int hell = candy.getHell();
-    String hope = candy.getHope();
-
-    public Producer(Stack<String> candyStack, int i) {
-        myCandy = i + ";" + hell + ";" + hope;
-        candyStack.push(myCandy);
-        Debug.gebeInfoAus(myCandy);
+    public Producer(Stack<Candy> cS, int number) {
+        candyStack = cS;
+        this.number = number; // producerid
+        Debug.gebeInfoAus("I'm producer Nr. " + this.number + " and I use the stack " + candyStack);
     }
 
-    public void start() {
-
+    public synchronized void run() {
+       while (true) {
+            //Debug.gebeInfoAus("I'm alive! - P");
+            Candy candy = new Candy();
+            candyStack.push(candy);
+            //Debug.gebeInfoAus("Producer #" + number + " just pushed " + candy);
+        }
     }
 }

@@ -7,6 +7,7 @@ import static app.fachinformatiker.myMashup.Constants.Constants.*;
 public class Candy {
     private int hell;
     private String hope;
+    private int producerID;
 
     public void createHell() {
         hell = new Random().nextInt(MAX_HELL)- MIN_HELL;
@@ -31,5 +32,9 @@ public class Candy {
     public String getHope() {
         createHope();
         return hope;
+    }
+
+    public String getCandy() {
+        return getHell() + ";" + getHope();
     }
 }
