@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019.
+ * To learn more about my code have a look at:
+ * - my GitHub page -> github.com/fachinformatiker
+ * - my blog -> fachinformatiker.app
+ * - my YouTube channel -> youtube.com/psvisualdesign
+ */
+
 package app.fachinformatiker.myMashup.Utility;
 
 
@@ -8,13 +16,13 @@ public class Debug {
 
     }
 
-    public static void gebeInfoAus(String text) {
+    public static void returnInfo(String text) {
         if (isDebug()) {
             System.out.println(text);
         }
     }
 
-    public static boolean isDebug() {
+    private static boolean isDebug() {
         return isDebug;
     }
 

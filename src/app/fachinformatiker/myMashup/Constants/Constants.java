@@ -1,9 +1,16 @@
+/*
+ * Copyright (c) 2019.
+ * To learn more about my code have a look at:
+ * - my GitHub page -> github.com/fachinformatiker
+ * - my blog -> fachinformatiker.app
+ * - my YouTube channel -> youtube.com/psvisualdesign
+ */
+
 package app.fachinformatiker.myMashup.Constants;
 
 public interface Constants {
     String NO_ARGUMETS = "You passed no arguments or less than three! Please try again!";
     String NONNUMERIC_ARGUMETS = "Failed trying to parse a non-numeric argument: ";
-    String INVALID_ARGUMENTS = "You passed invalid arguments!";
     String PRODUCER = "Producer: ";
     String CONSUMER = "Consumer: ";
     String SYNC = "Sync: ";
