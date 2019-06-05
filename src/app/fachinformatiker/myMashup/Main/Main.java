@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019.
+ * To learn more about my code have a look at:
+ * - my GitHub page -> github.com/fachinformatiker
+ * - my blog -> fachinformatiker.app
+ * - my YouTube channel -> youtube.com/psvisualdesign
+ */
+
 package app.fachinformatiker.myMashup.Main;
 
 import app.fachinformatiker.myMashup.Model.ArgController;
@@ -11,6 +19,8 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import static app.fachinformatiker.myMashup.Constants.Constants.*;
+
+
 
 public class Main {
 
@@ -40,8 +50,8 @@ public class Main {
         int syncArg = Integer.parseInt(args[2]);
 
         Debug.setDebug(false);
-        werteArgumenteAus(producerArg, consumerArg, syncArg);
-        starteAbbruchThread();
+        parseArguments(producerArg, consumerArg, syncArg);
+        startTerminationThread();
         initializeProducers();
         initializeConsumers(syncArg);
         startProducers();
@@ -49,39 +59,39 @@ public class Main {
 
     }
 
-    private static void werteArgumenteAus(int producerArg, int consumerArg, int syncArg ) {
-        ArgController.leseArgumenteAus(producerArg, consumerArg, syncArg);
+    private static void parseArguments(int producerArg, int consumerArg, int syncArg ) {
+        ArgController.parseArguments(producerArg, consumerArg, syncArg);
     }
 
     private static void startProducers() {
         for (int i = 0; i < producerList.size(); i++) {
             producerList.get(i).start();
-            Debug.gebeInfoAus("I'm starting producer nr. " + i + " now.");
+            Debug.returnInfo("I'm starting producer nr. " + i + " now.");
         }
     }
 
     private static void startConsumer() {
         for (int i = 0; i < consumerList.size(); i++) {
             consumerList.get(i).start();
-            Debug.gebeInfoAus("I' starting consumer nr. " + i + " now.");
+            Debug.returnInfo("I'm starting consumer nr. " + i + " now.");
         }
     }
 
     private static void initializeProducers() {
-        for (int i = 0; i < ArgController.getAnzahlProduzenten(); i++) {
+        for (int i = 0; i < ArgController.getProducerCount(); i++) {
             producerList.add(new Producer(candyStack, i));
-            Debug.gebeInfoAus(PRODUCER + i + " added to candyStack");
+            Debug.returnInfo(PRODUCER + i + " added to candyStack");
         }
     }
 
     private static void initializeConsumers(int syncArg) {
-        for (int i = 0; i < ArgController.getAnzahlConsumenten(); i++) {
+        for (int i = 0; i < ArgController.getConsumerCount(); i++) {
             consumerList.add(new Consumer(candyStack, i, syncArg));
-            Debug.gebeInfoAus(CONSUMER + i + " added to candyStack");
+            Debug.returnInfo(CONSUMER + i + " added to candyStack");
         }
     }
 
-    private static void starteAbbruchThread()
+    private static void startTerminationThread()
     {
         terminator.start();
     }

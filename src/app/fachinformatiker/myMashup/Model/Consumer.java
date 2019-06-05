@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2019.
+ * To learn more about my code have a look at:
+ * - my GitHub page -> github.com/fachinformatiker
+ * - my blog -> fachinformatiker.app
+ * - my YouTube channel -> youtube.com/psvisualdesign
+ */
+
 package app.fachinformatiker.myMashup.Model;
 
 import app.fachinformatiker.myMashup.Constants.Constants;
@@ -8,17 +16,15 @@ import java.util.Stack;
 public class Consumer extends Thread {
     private Stack<Candy> candyStack;
     private int consumerID;
-    private boolean isRunning;
     private int sync;
     private boolean isSync;
     private int candyStackSize;
-    private static final Terminator terminator = new Terminator();
 
     public Consumer(Stack<Candy> cS, int consumerID, int sync) {
         candyStack = cS;
         this.consumerID = consumerID;
         this.sync = sync;
-        Debug.gebeInfoAus("I'm consumer Nr. " + this.consumerID + " and I use the stack " + candyStack + "but beware of the sync " + this.sync + "!");
+        Debug.returnInfo("I'm" + Constants.CONSUMER + this.consumerID + " and I use the stack " + candyStack + "but beware of the " + Constants.SYNC + this.sync + "!");
     }
 
     private boolean candyStackEqualsSync() {
@@ -31,8 +37,8 @@ public class Consumer extends Thread {
     }
 
     public synchronized void run() {
-        while (!candyStack.empty() || candyStackEqualsSync()) {
-            Debug.gebeInfoAus("I'm alive! - C");
+        while (!candyStack.empty() || !candyStackEqualsSync()) {
+            Debug.returnInfo("I'm alive! - C");
             Candy value;
             value = candyStack.pop();
             System.out.println(Constants.CONSUMER + this.consumerID + " got new candy!" + "\n" +
