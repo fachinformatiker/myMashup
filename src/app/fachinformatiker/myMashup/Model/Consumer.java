@@ -7,18 +7,18 @@ import java.util.Stack;
 
 public class Consumer extends Thread {
     private Stack<Candy> candyStack;
-    private int consumerid;
+    private int consumerID;
     private boolean isRunning;
     private int sync;
     private boolean isSync;
     private int candyStackSize;
     private static final Terminator terminator = new Terminator();
 
-    public Consumer(Stack<Candy> cS, int consumerid, int sync) {
+    public Consumer(Stack<Candy> cS, int consumerID, int sync) {
         candyStack = cS;
-        this.consumerid = consumerid;
+        this.consumerID = consumerID;
         this.sync = sync;
-        Debug.gebeInfoAus("I'm consumer Nr. " + this.consumerid + " and I use the stack " + candyStack + "but beware of the sync " + this.sync + "!");
+        Debug.gebeInfoAus("I'm consumer Nr. " + this.consumerID + " and I use the stack " + candyStack + "but beware of the sync " + this.sync + "!");
     }
 
     private boolean isRunning() {
@@ -40,7 +40,7 @@ public class Consumer extends Thread {
             Debug.gebeInfoAus("I'm alive! - C");
             Candy value;
             value = candyStack.pop();
-            System.out.println(Constants.CONSUMER + this.consumerid + " got new candy!" + "\n" +
+            System.out.println(Constants.CONSUMER + this.consumerID + " got new candy!" + "\n" +
                     Constants.PRODUCER + value.getProducerID() + "\n" +
                     Constants.HOPE + value.getHope() + "\n" +
                     Constants.HELL + value.getHell() + "\n");

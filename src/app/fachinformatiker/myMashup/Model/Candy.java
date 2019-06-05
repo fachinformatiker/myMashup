@@ -7,17 +7,17 @@ import static app.fachinformatiker.myMashup.Constants.Constants.*;
 public class Candy {
     private int hell;
     private String hope;
-    private int producerid;
+    private int producerID;
 
-    public Candy(int producerid) {
-        this.producerid = producerid;
+    public Candy(int producerID) {
+        this.producerID = producerID;
     }
 
-    public void createHell() {
+    private void createHell() {
         hell = new Random().nextInt(MAX_HELL)- MIN_HELL;
     }
 
-    public void createHope() {
+    private void createHope() {
         Random random = new Random();
         StringBuilder buffer = new StringBuilder(HOPE_TARGET_STRING_LENGTH);
         for (int i = 0; i < HOPE_TARGET_STRING_LENGTH; i++) {
@@ -28,18 +28,18 @@ public class Candy {
         hope = buffer.toString();
     }
 
-    public int getHell() {
+    int getHell() {
         createHell();
         return hell;
     }
 
-    public String getHope() {
+    String getHope() {
         createHope();
         return hope;
     }
 
-    public int getProducerID() {
+    int getProducerID() {
 
-        return producerid;
+        return producerID;
     }
 }

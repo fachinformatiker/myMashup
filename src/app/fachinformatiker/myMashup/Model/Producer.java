@@ -6,14 +6,14 @@ import java.util.Stack;
 
 public class Producer extends Thread{
     private Stack<Candy> candyStack;
-    private int producerid;
+    private int producerID;
     private boolean isRunning;
     private static final Terminator terminator = new Terminator();
 
-    public Producer(Stack<Candy> cS, int producerid) {
+    public Producer(Stack<Candy> cS, int producerID) {
         candyStack = cS;
-        this.producerid = producerid;
-        Debug.gebeInfoAus("I'm producer Nr. " + this.producerid + " and I use the stack " + candyStack);
+        this.producerID = producerID;
+        Debug.gebeInfoAus("I'm producer Nr. " + this.producerID + " and I use the stack " + candyStack);
     }
 
     private boolean isRunning() {
@@ -24,9 +24,9 @@ public class Producer extends Thread{
     public synchronized void run() {
        while (!isRunning()) {
             Debug.gebeInfoAus("I'm alive! - P");
-            Candy candy = new Candy(this.producerid);
+            Candy candy = new Candy(this.producerID);
             candyStack.push(candy);
-            Debug.gebeInfoAus("Producer Nr. " + producerid + " just pushed " + candy);
+            Debug.gebeInfoAus("Producer Nr. " + producerID + " just pushed " + candy);
         }
     }
 }
