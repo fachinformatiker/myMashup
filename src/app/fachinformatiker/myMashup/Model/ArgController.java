@@ -4,11 +4,9 @@ import app.fachinformatiker.myMashup.Utility.Debug;
 
 public class ArgController {
 
-    static int producerCount;
-    static int consumerCount;
-    static int syncCount;
-
-    public static boolean istAusgewertet = false;
+    private static int producerCount;
+    private static int consumerCount;
+    private static int syncCount;
 
     public static void leseArgumenteAus(int producerArg, int consumerArg, int syncArg) {
         producerCount = producerArg;
