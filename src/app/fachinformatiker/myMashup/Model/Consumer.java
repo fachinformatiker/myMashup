@@ -21,11 +21,6 @@ public class Consumer extends Thread {
         Debug.gebeInfoAus("I'm consumer Nr. " + this.consumerID + " and I use the stack " + candyStack + "but beware of the sync " + this.sync + "!");
     }
 
-    private boolean isRunning() {
-        isRunning = terminator.isTerminated();
-        return isRunning;
-    }
-
     private boolean candyStackEqualsSync() {
         candyStackSize = candyStack.size();
         if (candyStackSize < this.sync) {
@@ -36,7 +31,7 @@ public class Consumer extends Thread {
     }
 
     public synchronized void run() {
-        while (!isRunning() || !candyStack.empty() || candyStackEqualsSync()) {
+        while (!candyStack.empty() || candyStackEqualsSync()) {
             Debug.gebeInfoAus("I'm alive! - C");
             Candy value;
             value = candyStack.pop();

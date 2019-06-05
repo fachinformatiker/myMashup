@@ -26,13 +26,13 @@ public class Terminator extends Thread {
             }
             if (leseCodeEin() == Constants.MagicNumber) {
                 System.out.println(Constants.MagicNumberDetected);
-                Debug.gebeInfoAus("stopping threads.");
-                isTerminated = true;
-                try {
-                    TimeUnit.SECONDS.sleep(3);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
+                //Debug.gebeInfoAus("stopping threads.");
+                //isTerminated = true;
+                //try {
+                //    TimeUnit.SECONDS.sleep(3);
+                //} catch (InterruptedException e) {
+                //    e.printStackTrace();
+                //}
                 long end = System.currentTimeMillis();
                 NumberFormat formatter = new DecimalFormat("#0.00000");
                 System.out.println("Execution time is " + formatter.format((end - start) / 1000d) + " seconds" + "\n");

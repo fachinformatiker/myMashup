@@ -16,13 +16,8 @@ public class Producer extends Thread{
         Debug.gebeInfoAus("I'm producer Nr. " + this.producerID + " and I use the stack " + candyStack);
     }
 
-    private boolean isRunning() {
-        isRunning = terminator.isTerminated();
-        return isRunning;
-    }
-
     public synchronized void run() {
-       while (!isRunning()) {
+       while (true) {
             Debug.gebeInfoAus("I'm alive! - P");
             Candy candy = new Candy(this.producerID);
             candyStack.push(candy);
