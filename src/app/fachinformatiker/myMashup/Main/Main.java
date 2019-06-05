@@ -44,7 +44,7 @@ public class Main {
         werteArgumenteAus(producerArg, consumerArg, syncArg);
         starteAbbruchThread();
         initializeProducers();
-        initializeConsumers();
+        initializeConsumers(syncArg);
         startProducers();
         startConsumer();
 
@@ -75,9 +75,9 @@ public class Main {
         }
     }
 
-    private static void initializeConsumers() {
+    private static void initializeConsumers(int syncArg) {
         for (int i = 0; i < ArgController.getAnzahlConsumenten(); i++) {
-            consumerList.add(new Consumer(candyStack, i));
+            consumerList.add(new Consumer(candyStack, i, syncArg));
             Debug.gebeInfoAus(CONSUMER + i + " added to candyStack");
         }
     }

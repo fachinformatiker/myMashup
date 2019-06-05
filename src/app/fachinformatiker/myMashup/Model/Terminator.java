@@ -5,14 +5,12 @@ import app.fachinformatiker.myMashup.Utility.Debug;
 
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
-import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class Terminator extends Thread {
 
-    private static final ArrayList<Producer> producerList = new ArrayList<>();
-    private static final ArrayList<Consumer> consumerList = new ArrayList<>();
+    private boolean isTerminated = false;
 
     @Override
     public void run() {
@@ -24,16 +22,14 @@ public class Terminator extends Thread {
                 Debug.gebeInfoAus("Terminator ist lebendig");
                 sleep(100);
             } catch (InterruptedException ex) {
-
+                return;
             }
             if (leseCodeEin() == Constants.MagicNumber) {
-                Debug.gebeInfoAus("MagicNumber detected");
                 System.out.println(Constants.MagicNumberDetected);
                 Debug.gebeInfoAus("stopping threads.");
-                stopProducers();
-                stopConsumer();
+                isTerminated = true;
                 try {
-                    TimeUnit.SECONDS.sleep(2);
+                    TimeUnit.SECONDS.sleep(3);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -45,24 +41,13 @@ public class Terminator extends Thread {
         }
     }
 
-    public int leseCodeEin() {
+    boolean isTerminated() {
+        return isTerminated;
+    }
+
+    private int leseCodeEin() {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextInt();
     }
-
-    private static void stopProducers() {
-        for (int i = 0; i < producerList.size(); i++) {
-            producerList.get(i).interrupt();
-            Debug.gebeInfoAus("I'm stopping producer nr. " + i + " now.");
-        }
-    }
-
-    private static void stopConsumer() {
-        for (int i = 0; i < consumerList.size(); i++) {
-            consumerList.get(i).interrupt();
-            Debug.gebeInfoAus("I'm stopping consumer nr. " + i + " now.");
-        }
-    }
-
 
 }
