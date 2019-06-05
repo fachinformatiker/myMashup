@@ -11,10 +11,11 @@ import java.util.ArrayList;
 import java.util.Stack;
 
 import static app.fachinformatiker.myMashup.Constants.Constants.NONNUMERIC_ARGUMETS;
+import static app.fachinformatiker.myMashup.Constants.Constants.NO_ARGUMETS;
 
 public class Main {
 
-    public static final Stack<Candy> candyStack = new Stack<>();
+    private static final Stack<Candy> candyStack = new Stack<>();
     private static final ArrayList<Producer> producerList = new ArrayList<>();
     private static final ArrayList<Consumer> consumerList = new ArrayList<>();
     private static final Terminator terminator = new Terminator();
@@ -23,11 +24,16 @@ public class Main {
     public static void main(String[] args) {
 
         int[] intArgs = new int[args.length];
-        for (int i : intArgs) {
-            try {
-                intArgs[i] = Integer.parseInt(args[i]);
-            } catch (NumberFormatException e) {
-                System.err.println(NONNUMERIC_ARGUMETS + args[i]);
+        if (intArgs.length < 1) {
+            System.out.println(NO_ARGUMETS);
+            System.exit(1);
+        } else {
+            for (int i : intArgs) {
+                try {
+                    intArgs[i] = Integer.parseInt(args[i]);
+                } catch (NumberFormatException e) {
+                    System.err.println(NONNUMERIC_ARGUMETS + args[i]);
+                }
             }
         }
 
@@ -64,10 +70,6 @@ public class Main {
     }
 
     private static void initializeProducers() {
-        if (ArgController.istAusgewertet) {
-            Debug.gebeInfoAus("Producer istAusgewertet");
-            return;
-        }
         for (int i = 0; i < ArgController.getAnzahlProduzenten(); i++) {
             producerList.add(new Producer(candyStack, i));
             Debug.gebeInfoAus("Producer Nr. " + i + " added to candyStack");
@@ -75,10 +77,6 @@ public class Main {
     }
 
     private static void initializeConsumers() {
-        if (ArgController.istAusgewertet) {
-            Debug.gebeInfoAus("Consumer istAusgewertet");
-            return;
-        }
         for (int i = 0; i < ArgController.getAnzahlConsumenten(); i++) {
             consumerList.add(new Consumer(candyStack));
             Debug.gebeInfoAus("Consumer Nr. " + i + " added to candyStack");
