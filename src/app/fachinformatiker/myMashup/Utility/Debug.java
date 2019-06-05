@@ -9,7 +9,9 @@ public class Debug {
     }
 
     public static void gebeInfoAus(String text) {
-        System.out.println(text);
+        if (isDebug()) {
+            System.out.println(text);
+        }
     }
 
     public static boolean isDebug() {
