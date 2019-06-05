@@ -19,7 +19,6 @@ public class Main {
     private static final ArrayList<Consumer> consumerList = new ArrayList<>();
     private static final Terminator terminator = new Terminator();
 
-
     public static void main(String[] args) {
 
         int[] intArgs = new int[args.length];
