@@ -20,8 +20,9 @@ import java.util.Stack;
 
 import static app.fachinformatiker.myMashup.Constants.Constants.*;
 
-
-
+/**
+ * @author Patrick Szalewicz (info@fachinformatiker.app)
+ */
 public class Main {
 
     private static final Stack<Candy> candyStack = new Stack<>();

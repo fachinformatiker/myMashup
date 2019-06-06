@@ -12,6 +12,9 @@ import java.util.Random;
 
 import static app.fachinformatiker.myMashup.Constants.Constants.*;
 
+/**
+ * @author Patrick Szalewicz (info@fachinformatiker.app)
+ */
 public class Candy {
     private int hell;
     private String hope;

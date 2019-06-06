@@ -13,6 +13,9 @@ import app.fachinformatiker.myMashup.Utility.Debug;
 
 import java.util.Stack;
 
+/**
+ * @author Patrick Szalewicz (info@fachinformatiker.app)
+ */
 public class Producer extends Thread{
     private Stack<Candy> candyStack;
     private int producerID;
