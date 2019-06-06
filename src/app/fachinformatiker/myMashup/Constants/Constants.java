@@ -9,8 +9,10 @@
 package app.fachinformatiker.myMashup.Constants;
 
 /**
- * @author Patrick Szalewicz (info@fachinformatiker.app)
+ * @author Patrick Szalewicz <info@fachinformatiker.app>
+ *
  */
+
 public interface Constants {
     String NO_ARGUMETS = "You passed no arguments or less than three! Please try again!";
     String NONNUMERIC_ARGUMETS = "Failed trying to parse a non-numeric argument: ";

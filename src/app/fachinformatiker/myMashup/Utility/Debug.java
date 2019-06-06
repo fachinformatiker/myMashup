@@ -8,10 +8,11 @@
 
 package app.fachinformatiker.myMashup.Utility;
 
-
 /**
- * @author Patrick Szalewicz (info@fachinformatiker.app)
+ * @author Patrick Szalewicz <info@fachinformatiker.app>
+ *
  */
+
 public class Debug {
     private static boolean isDebug = false;
 

@@ -16,8 +16,10 @@ import java.text.NumberFormat;
 import java.util.Scanner;
 
 /**
- * @author Patrick Szalewicz (info@fachinformatiker.app)
+ * @author Patrick Szalewicz <info@fachinformatiker.app>
+ *
  */
+
 public class Terminator extends Thread {
 
     @Override

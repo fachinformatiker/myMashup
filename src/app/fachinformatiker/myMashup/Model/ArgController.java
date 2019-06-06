@@ -11,8 +11,10 @@ package app.fachinformatiker.myMashup.Model;
 import app.fachinformatiker.myMashup.Utility.Debug;
 
 /**
- * @author Patrick Szalewicz (info@fachinformatiker.app)
+ * @author Patrick Szalewicz <info@fachinformatiker.app>
+ *
  */
+
 public class ArgController {
 
     private static int producerCount;
