@@ -6,11 +6,12 @@
  * - my YouTube channel -> youtube.com/psvisualdesign
  */
 
-package app.fachinformatiker.myMashup.Constants;
+package app.fachinformatiker.myMashup.constants;
 
 /**
  * @author Patrick Szalewicz <info@fachinformatiker.app>
  *
+ * This file stores every used String and Integer.
  */
 
 public interface Constants {
@@ -22,6 +23,8 @@ public interface Constants {
     String HELL = "Hell: ";
     String HOPE = "Hope: ";
     String MagicNumberDetected = "I've detected the Magic Number so I'm terminating myself!";
+
+    boolean run = true;
 
     int MagicNumber = 666;
     int MIN_HELL = 9999;

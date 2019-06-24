@@ -6,11 +6,11 @@
  * - my YouTube channel -> youtube.com/psvisualdesign
  */
 
-package app.fachinformatiker.myMashup.Model;
+package app.fachinformatiker.myMashup.model;
 
 import java.util.Random;
 
-import static app.fachinformatiker.myMashup.Constants.Constants.*;
+import static app.fachinformatiker.myMashup.constants.Constants.*;
 
 /**
  * @author Patrick Szalewicz <info@fachinformatiker.app>
@@ -22,13 +22,25 @@ public class Candy {
     private String hope;
     private int producerID;
 
+    /**
+     * @param producerID sets the producerID in this thread to the producerID it gets
+     */
+
     public Candy(int producerID) {
         this.producerID = producerID;
     }
 
+    /**
+     * creates a hell object (random number)
+     */
+
     private void createHell() {
         hell = new Random().nextInt(MAX_HELL)- MIN_HELL;
     }
+
+    /**
+     * creates a hope object (random string)
+     */
 
     private void createHope() {
         Random random = new Random();
@@ -41,15 +53,27 @@ public class Candy {
         hope = buffer.toString();
     }
 
+    /**
+     * returns a hell object
+     */
+
     int getHell() {
         createHell();
         return hell;
     }
 
+    /**
+     * returns a hope object
+     */
+
     String getHope() {
         createHope();
         return hope;
     }
+
+    /**
+     * returns the current producerID
+     */
 
     int getProducerID() {
 

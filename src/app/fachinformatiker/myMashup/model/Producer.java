@@ -6,10 +6,10 @@
  * - my YouTube channel -> youtube.com/psvisualdesign
  */
 
-package app.fachinformatiker.myMashup.Model;
+package app.fachinformatiker.myMashup.model;
 
-import app.fachinformatiker.myMashup.Constants.Constants;
-import app.fachinformatiker.myMashup.Utility.Debug;
+import app.fachinformatiker.myMashup.constants.Constants;
+import app.fachinformatiker.myMashup.utility.Debug;
 
 import java.util.Stack;
 
@@ -23,19 +23,33 @@ public class Producer extends Thread{
     private int producerID;
     private static final Terminator terminator = new Terminator();
 
+    /**
+     * @param cS the CandyStack we are using
+     * @param producerID the ID of the current producer
+     */
+
     public Producer(Stack<Candy> cS, int producerID) {
         candyStack = cS;
         this.producerID = producerID;
         Debug.returnInfo("I'm producer Nr. " + this.producerID + " and I use the stack " + candyStack);
     }
 
+    /**
+     * producer thread
+     * will push new candies to the stack for an infinite amount of time
+     * we will see debug messages it we run it with:
+     * Debug.setDebug(true);
+     *
+     */
+
     public synchronized void run() {
-        //noinspection InfiniteLoopStatement
-        while (true) {
+        while (Constants.run) {
             Debug.returnInfo("I'm alive! - P");
             Candy candy = new Candy(this.producerID);
             candyStack.push(candy);
             Debug.returnInfo( Constants.PRODUCER + this.producerID + " just pushed " + candy);
+
+            notify();
         }
     }
 }

@@ -2,8 +2,8 @@
 
 title __MAIN's Class Diagram__\n
 
-  package app.fachinformatiker.myMashup.Main {
-    class Main {
+  namespace app.fachinformatiker.myMashup.main {
+    class app.fachinformatiker.myMashup.main.Main {
         {static} - candyStack : Stack<Candy>
         {static} - producerList : ArrayList<Producer>
         {static} - consumerList : ArrayList<Consumer>

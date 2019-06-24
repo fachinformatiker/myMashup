@@ -2,50 +2,50 @@
 
 title __MYMASHUP's Class Diagram__\n
 
-  package app.fachinformatiker.myMashup.Model {
-    class ArgController {
+  namespace app.fachinformatiker.myMashup.model {
+    class app.fachinformatiker.myMashup.model.ArgController {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Model {
-    class Candy {
+  namespace app.fachinformatiker.myMashup.model {
+    class app.fachinformatiker.myMashup.model.Candy {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Constants {
-    interface Constants {
+  namespace app.fachinformatiker.myMashup.constants {
+    interface app.fachinformatiker.myMashup.constants.Constants {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Model {
-    class Consumer {
+  namespace app.fachinformatiker.myMashup.model {
+    class app.fachinformatiker.myMashup.model.Consumer {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Utility {
-    class Debug {
+  namespace app.fachinformatiker.myMashup.utility {
+    class app.fachinformatiker.myMashup.utility.Debug {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Main {
-    class Main {
+  namespace app.fachinformatiker.myMashup.main {
+    class app.fachinformatiker.myMashup.main.Main {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Model {
-    class Producer {
+  namespace app.fachinformatiker.myMashup.model {
+    class app.fachinformatiker.myMashup.model.Producer {
     }
   }
   
 
-  package app.fachinformatiker.myMashup.Model {
-    class Terminator {
+  namespace app.fachinformatiker.myMashup.model {
+    class app.fachinformatiker.myMashup.model.Terminator {
     }
   }
   

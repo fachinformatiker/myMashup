@@ -6,19 +6,19 @@
  * - my YouTube channel -> youtube.com/psvisualdesign
  */
 
-package app.fachinformatiker.myMashup.Main;
+package app.fachinformatiker.myMashup.main;
 
-import app.fachinformatiker.myMashup.Model.ArgController;
-import app.fachinformatiker.myMashup.Model.Candy;
-import app.fachinformatiker.myMashup.Model.Consumer;
-import app.fachinformatiker.myMashup.Model.Producer;
-import app.fachinformatiker.myMashup.Model.Terminator;
-import app.fachinformatiker.myMashup.Utility.Debug;
+import app.fachinformatiker.myMashup.model.ArgController;
+import app.fachinformatiker.myMashup.model.Candy;
+import app.fachinformatiker.myMashup.model.Consumer;
+import app.fachinformatiker.myMashup.model.Producer;
+import app.fachinformatiker.myMashup.model.Terminator;
+import app.fachinformatiker.myMashup.utility.Debug;
 
 import java.util.ArrayList;
 import java.util.Stack;
 
-import static app.fachinformatiker.myMashup.Constants.Constants.*;
+import static app.fachinformatiker.myMashup.constants.Constants.*;
 
 /**
  * @author Patrick Szalewicz <info@fachinformatiker.app>
@@ -32,7 +32,13 @@ public class Main {
     private static final ArrayList<Consumer> consumerList = new ArrayList<>();
     private static final Terminator terminator = new Terminator();
 
+    /**
+     * @param args the command line arguments that will be parsed later on
+     */
+
     public static void main(String[] args) {
+
+        // read in "args" and check for errors
 
         int[] intArgs = new int[args.length];
         if (intArgs.length < 1) {
@@ -48,9 +54,13 @@ public class Main {
             }
         }
 
+        // declare the proper variables with the corresponding values
+
         int producerArg = Integer.parseInt(args[0]);
         int consumerArg = Integer.parseInt(args[1]);
         int syncArg = Integer.parseInt(args[2]);
+
+        // start all the threads
 
         Debug.setDebug(false);
         parseArguments(producerArg, consumerArg, syncArg);
@@ -62,9 +72,19 @@ public class Main {
 
     }
 
+    /**
+     * @param producerArg amount of producers (producer threads)
+     * @param consumerArg amount of consumers (consumer threads)
+     * @param syncArg amount of "candies" that have to be on the stack
+     */
+
     private static void parseArguments(int producerArg, int consumerArg, int syncArg ) {
         ArgController.parseArguments(producerArg, consumerArg, syncArg);
     }
+
+    /**
+     * starts the producer threads
+     */
 
     private static void startProducers() {
         for (int i = 0; i < producerList.size(); i++) {
@@ -73,12 +93,20 @@ public class Main {
         }
     }
 
+    /**
+     * starts the consumer threads
+     */
+
     private static void startConsumer() {
         for (int i = 0; i < consumerList.size(); i++) {
             consumerList.get(i).start();
             Debug.returnInfo("I'm starting consumer nr. " + i + " now.");
         }
     }
+
+    /**
+     * initializes the producers
+     */
 
     private static void initializeProducers() {
         for (int i = 0; i < ArgController.getProducerCount(); i++) {
@@ -87,12 +115,20 @@ public class Main {
         }
     }
 
+    /**
+     * initializes the consumers
+     */
+
     private static void initializeConsumers(int syncArg) {
         for (int i = 0; i < ArgController.getConsumerCount(); i++) {
             consumerList.add(new Consumer(candyStack, i, syncArg));
             Debug.returnInfo(CONSUMER + i + " added to candyStack");
         }
     }
+
+    /**
+     * starts the terminator thread
+     */
 
     private static void startTerminationThread()
     {

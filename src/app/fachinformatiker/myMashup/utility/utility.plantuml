@@ -2,8 +2,8 @@
 
 title __UTILITY's Class Diagram__\n
 
-  package app.fachinformatiker.myMashup.Utility {
-    class Debug {
+  namespace app.fachinformatiker.myMashup.utility {
+    class app.fachinformatiker.myMashup.utility.Debug {
         {static} - isDebug : boolean
         - Debug()
         {static} + returnInfo()
